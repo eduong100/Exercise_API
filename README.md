@@ -4,6 +4,8 @@ The base url is: https://exercise-app-duong.herokuapp.com/exercises
 
 One can access the API using the following endpoints (all requests are get requests):
 
+Data is stored in a MongoDB NoSQL database
+
 <h2>Get All Exercises</h2>
 Endpoint: / 
 
@@ -12,14 +14,14 @@ Returns a JSON list of all exercises (Javascript Objects)
 Exercise example: (Javascript Object)
 ```
 {
-  "_id": "62bb4fd8396787166ccd5cba",
-  "bodyPart": "upper legs",
-  "equipment": "body weight",
-  "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1512.gif",
-  "id": "1512",
-  "name": "all fours squad stretch",
-  "target": "quads",
-  "__v": 0
+    "_id": "62bb4fd8396787166ccd5cba",
+    "bodyPart": "upper legs",
+    "equipment": "body weight",
+    "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1512.gif",
+    "id": "1512",
+    "name": "all fours squad stretch",
+    "target": "quads",
+    "__v": 0
 }
 ```
 
@@ -110,5 +112,126 @@ Response:
   "upper body ergometer",
   "weighted",
   "wheel roller"
+]
+```
+
+<h2>Get exercise by ID</h2>
+Endpoint: /:id
+
+Return a single exercise with desired id 
+
+Example Request: GET /0015
+
+Example Response:
+```
+{
+    "_id": "62bb4fd8396787166ccd5ccd",
+    "bodyPart": "back",
+    "equipment": "leverage machine",
+    "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+    "id": "0015",
+    "name": "assisted parallel close grip pull-up",
+    "target": "lats",
+    "__v": 0
+}
+```
+
+<h2>Get exercises by body part</h2>
+Endpoint: /bodyPart/:part
+
+Return a JSON list of exercises that match body part (exact match only)
+
+Example Request: GET /bodyPart/neck
+
+Example Response:
+
+```
+[
+    {
+        "_id": "62bb4fd8396787166ccd612d",
+        "bodyPart": "neck",
+        "equipment": "body weight",
+        "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0716.gif",
+        "id": "0716",
+        "name": "side push neck stretch",
+        "target": "levator scapulae",
+        "__v": 0
+    },
+    {
+        "_id": "62bb4fd8396787166ccd60bd",
+        "bodyPart": "neck",
+        "equipment": "body weight",
+        "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1403.gif",
+        "id": "1403",
+        "name": "neck side stretch",
+        "target": "levator scapulae",
+        "__v": 0
+    }
+]
+```
+
+<h2>Get exercises by name</h2>
+Endpoint: /name/:nameQuery
+
+Return a JSON list of exercises that match name (regex matching)
+
+Example Request: GET /name/push
+
+Example Response:
+```
+[
+    {
+        "_id": "62bb4fd8396787166ccd5ce9",
+        "bodyPart": "upper arms",
+        "equipment": "band",
+        "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0975.gif",
+        "id": "0975",
+        "name": "band close-grip push-up",
+        "target": "triceps",
+        "__v": 0
+    },
+    {
+        "_id": "62bb4fd8396787166ccd5cfc",
+        "bodyPart": "waist",
+        "equipment": "band",
+        "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0992.gif",
+        "id": "0992",
+        "name": "band push sit-up",
+        "target": "abs",
+        "__v": 0
+    }, ... 
+]
+```
+
+<h2>Get exercises by target</h2>
+Endpoint: /target/:target
+
+Return a JSON list of exercises that match target (exact matching only)
+
+Example Request: GET /target/upper%20back
+
+Example Response:
+```
+[
+    {
+        "_id": "62bb4fd8396787166ccd5d4d",
+        "bodyPart": "back",
+        "equipment": "barbell",
+        "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0064.gif",
+        "id": "0064",
+        "name": "barbell one arm bent over row",
+        "target": "upper back",
+        "__v": 0
+    },
+    {
+        "_id": "62bb4fd8396787166ccd5dba",
+        "bodyPart": "back",
+        "equipment": "body weight",
+        "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/3162.gif",
+        "id": "3162",
+        "name": "bodyweight standing one arm row",
+        "target": "upper back",
+        "__v": 0
+    }, ...
 ]
 ```
