@@ -235,3 +235,36 @@ Example Response:
     }, ...
 ]
 ```
+
+<h2>Get exercises by equipment used</h2>
+Endpoint: /equipment/:equipment
+
+Return a JSON list of exercises that match the equipment used (exact matching only)
+
+Example Request: GET /equipment/barbell
+
+Example Response:
+```
+[
+    {
+        "_id": "62bb4fd8396787166ccd5d17",
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0023.gif",
+        "id": "0023",
+        "name": "barbell alternate biceps curl",
+        "target": "biceps",
+        "__v": 0
+    },
+    {
+        "_id": "62bb4fd8396787166ccd5d1a",
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0026.gif",
+        "id": "0026",
+        "name": "barbell bench squat",
+        "target": "quads",
+        "__v": 0
+    }, ...
+]
+```
