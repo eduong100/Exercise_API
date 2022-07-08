@@ -4,7 +4,7 @@ The base url is: https://exercise-app-duong.herokuapp.com/exercises
 
 One can access the API using the following endpoints (all requests are GET requests):
 
-Data is stored in a MongoDB NoSQL database
+Data is stored in a MongoDB NoSQL database. There are over 1300 unique exercises.
 
 <h2>Get All Exercises</h2>
 Endpoint: / 
