@@ -2,7 +2,7 @@
 
 The base url is: https://exercise-app-duong.herokuapp.com/exercises
 
-One can access the API using the following endpoints (all requests are get requests):
+One can access the API using the following endpoints (all requests are GET requests):
 
 Data is stored in a MongoDB NoSQL database
 
@@ -11,18 +11,32 @@ Endpoint: /
 
 Returns a JSON list of all exercises (Javascript Objects)
 
-Exercise example: (Javascript Object)
+Example Request: GET /
+
+Example Response: 
 ```
-{
-    "_id": "62bb4fd8396787166ccd5cba",
-    "bodyPart": "upper legs",
-    "equipment": "body weight",
-    "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1512.gif",
-    "id": "1512",
-    "name": "all fours squad stretch",
-    "target": "quads",
-    "__v": 0
-}
+[
+    {
+        "_id": "62bb4fd8396787166ccd5cba",
+        "bodyPart": "upper legs",
+        "equipment": "body weight",
+        "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1512.gif",
+        "id": "1512",
+        "name": "all fours squad stretch",
+        "target": "quads",
+        "__v": 0
+    },
+    {
+        "_id": "62bb4fd8396787166ccd5cb7",
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
+        "id": "0001",
+        "name": "3/4 sit-up",
+        "target": "abs",
+        "__v": 0
+    }, ...
+]
 ```
 
 <h2>Get List of BodyParts</h2>
